@@ -1,0 +1,6 @@
+.animation{
+    scroll-behavior: smooth;
+    animation-duration: 500ms;
+    padding-top: 60px;
+
+}
