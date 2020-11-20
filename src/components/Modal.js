@@ -2,7 +2,6 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 
 const Popup = ({ handleClose, show, modaldata }) => {
-  console.log(modaldata.location, "GGGGGGGGGGGGGGGGG");
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -30,7 +29,7 @@ const Popup = ({ handleClose, show, modaldata }) => {
             )}
           </div>
         </Modal.Body>
-        <div class="cursor-pointer"></div>
+        <div className="cursor-pointer"></div>
       </Modal>
     </>
   );

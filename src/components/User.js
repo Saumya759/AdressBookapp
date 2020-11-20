@@ -7,7 +7,6 @@ import "../Styles/User.css";
 
 const User = (props) => {
   const { email, name, picture, handleModal, location, cell, phone } = props;
-  console.log(email, name, picture, "pppppppppp");
   const fullName = (title, first, last) => {
     return (
       <p>
@@ -17,7 +16,6 @@ const User = (props) => {
     );
   };
 
-  
   return (
     <>
       <ScrollAnimation animateIn="fadeIn" className="animation">
@@ -37,10 +35,13 @@ const User = (props) => {
             </p>
           </div>
         </li>
-        <Button variant="info" className="details" onClick={()=>handleModal({location,cell,phone})}>
+        <Button
+          variant="info"
+          className="details"
+          onClick={() => handleModal({ location, cell, phone })}
+        >
           Info
         </Button>{" "}
-    
       </ScrollAnimation>
     </>
   );

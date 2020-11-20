@@ -3,11 +3,11 @@ const initialstate = {
   isSuccess: false,
   isRequest: false,
   isError: false,
+  isLoading: false,
   result: [],
 };
 
 const getUser = (state = initialstate, action) => {
-  // console.log("SSS", action.payload);
   switch (action.type) {
     case constant.GET_USERS_REQUEST:
       return {
@@ -15,6 +15,7 @@ const getUser = (state = initialstate, action) => {
         isSuccess: false,
         isRequest: true,
         isError: false,
+        isLoading: true,
       };
 
     case constant.GET_USERS_SUCCESS:
@@ -23,7 +24,9 @@ const getUser = (state = initialstate, action) => {
         isSuccess: true,
         isRequest: false,
         isError: false,
+        isLoading: false,
         result: action.payload.response,
+     
       };
 
     case constant.GET_USERS_ERROR:
@@ -32,6 +35,7 @@ const getUser = (state = initialstate, action) => {
         isSuccess: false,
         isRequest: false,
         isError: true,
+        isLoading: false,
         error: action.payload.error,
       };
     default:
