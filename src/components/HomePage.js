@@ -14,8 +14,9 @@ import {
 import User from "./User";
 import "../Styles/HomePage.css";
 import Modal from "./Modal";
+import FilterSetting from "./Setting";
 
-const HomePage = () => {
+const HomePage = (props) => {
   const [show, setShow] = useState(false);
   const [modaldata, setModal] = useState([]);
   const [list, setList] = useState([]);
@@ -36,16 +37,22 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
-    setList(data);
+    const countryName = props.match.params.country.replace("%20", " ");
+    const filteredCountry = data?.filter(
+      (alldata) => alldata.location.country === countryName
+    );
+    setList(filteredCountry);
   }, [data]);
 
   useEffect(() => {
     const newE = data?.filter(
       (data) =>
-        data.name.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        data.name.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        data.name.first.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        data.name.last.toLowerCase().indexOf(search.toLowerCase()) !== -1
     );
     setList(newE);
-  }, [search, data]);
+  }, [search]);
 
   return (
     <>
@@ -53,26 +60,18 @@ const HomePage = () => {
         <h2>
           <b>ADDRESS BOOK </b>
         </h2>
+
         <Navbar bg="light" variant="light">
-          <Container>
-            <Row>
-              <Nav>
-                <Col sm={8}>
-                  <FormControl
-                    type="text"
-                    placeholder="Search"
-                    className="mr-sm-2"
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                </Col>
-                <Col sm={4}>
-                  <Link to="/">
-                    <Button variant="secondary">Setting</Button>
-                  </Link>
-                </Col>
-              </Nav>
-            </Row>
-          </Container>
+          <FormControl
+            type="text"
+            placeholder="Search"
+            className="mr-sm-2"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <Link to="/">
+            <Button variant="secondary">Setting</Button>
+          </Link>
         </Navbar>
       </div>
 

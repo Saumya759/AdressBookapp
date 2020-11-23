@@ -1,6 +1,3 @@
-.details.btn.btn-info{
-    width: 30px;
-    height: 30px;
-    margin-right: 895px;
-    padding: initial;
+.email {
+  word-break: break-all;
 }

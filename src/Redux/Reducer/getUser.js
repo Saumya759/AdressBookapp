@@ -26,7 +26,6 @@ const getUser = (state = initialstate, action) => {
         isError: false,
         isLoading: false,
         result: action.payload.response,
-     
       };
 
     case constant.GET_USERS_ERROR:

@@ -12,14 +12,18 @@ const Setting = (props) => {
 
   useEffect(() => {
     dispatch(getUsersRequest());
+    setCountry([]);
   }, []);
 
   useEffect(() => {
     setCountry(data);
   }, [data]);
 
+  const handleCountryChange = (e) => {
+    setCountry(e.target.value);
+  };
   const handlesubmit = () => {
-    props.history.push("/homepage");
+    props.history.push(`/homepage/${country}`);
   };
 
   return (
@@ -28,7 +32,11 @@ const Setting = (props) => {
         <Container>
           <Row>
             <Col xs={6}>
-              <select type="text" name="country">
+              <select
+                type="text"
+                name="country"
+                onChange={(e) => handleCountryChange(e)}
+              >
                 <option value>Nationalities</option>
                 {data &&
                   data.map((opt, i) => (

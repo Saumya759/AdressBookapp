@@ -5,19 +5,17 @@
   z-index: 1000;
   background-color: white;
 }
-.load_page{
+.load_page {
   color: blue;
   margin-top: 100px;
 }
-.foot{
+.foot {
   font-style: bold;
-  position: absolute; 
-  bottom: 0; 
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  
 }
-.foot_parent{
+.foot_parent {
   position: relative;
   min-height: 90vh;
-  
 }
