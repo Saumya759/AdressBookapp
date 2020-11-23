@@ -1,10 +1,17 @@
 import "./App.css";
 import HomePage from "./components/HomePage";
+import Setting from "./components/Setting";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 const App = () => {
   return (
     <div className="App">
-      <HomePage />
+      <HashRouter>
+        <Switch>
+          <Route exact path="/" component={Setting}/>
+          <Route path="/homepage" component={HomePage}/>
+        </Switch>
+      </HashRouter>
     </div>
   );
 };
