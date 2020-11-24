@@ -7,7 +7,9 @@
 }
 .load_page {
   color: blue;
-  margin-top: 100px;
+  margin-top: 150px;
+  float: inline-start;
+  
 }
 .foot {
   font-style: bold;
@@ -18,4 +20,9 @@
 .foot_parent {
   position: relative;
   min-height: 90vh;
+}
+.page_tab{
+  position: relative;
+  min-height: 90vh;
+
 }
