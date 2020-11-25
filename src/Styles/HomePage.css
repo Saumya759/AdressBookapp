@@ -9,6 +9,8 @@
   color: blue;
   margin-top: 150px;
   float: inline-start;
+  font-weight: bold;
+
   
 }
 .foot {
@@ -24,5 +26,7 @@
 .page_tab{
   position: relative;
   min-height: 90vh;
+  margin-left: 30%;
+  margin-top:20%
 
 }

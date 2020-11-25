@@ -23,7 +23,6 @@ const HomePage = (props) => {
     setModal(modaldata);
     setShow(!show);
   };
-
   const handleClose = () => setShow(false);
 
   useEffect(() => {
@@ -35,7 +34,7 @@ const HomePage = (props) => {
     const filteredCountry = data?.filter(
       (alldata) => alldata.location.country === countryName
     );
-    console.log(filteredCountry, "yyyyyyyyyyyy");
+
     setList(filteredCountry);
     setListPage(filteredCountry);
   }, [data]);
@@ -51,22 +50,20 @@ const HomePage = (props) => {
     setList(newE);
   }, [search]);
 
-//   useEffect(() => {
-//     if
-//     (setList(newList)){
-// // 
-//     }
-
-//   }, []);
+  useEffect(() => {
+    let pageIndex = 1;
+    setActivePage(pageIndex);
+    let initialIndex = (pageIndex - 1) * 5;
+    let finalIndex = (pageIndex + 1) * 5 - 5;
+    let newList = Listpage.slice(initialIndex, finalIndex);
+    setList(newList);
+  }, [list.length]);
 
   const handleChange = (pageIndex) => {
     setActivePage(pageIndex);
-    console.log(pageIndex, "TTTTTTTT");
     let initialIndex = (pageIndex - 1) * 5;
     let finalIndex = (pageIndex + 1) * 5 - 5;
-    console.log(finalIndex, initialIndex, "eeeeeeeeee");
     let newList = Listpage.slice(initialIndex, finalIndex);
-    console.log(newList, "WWWWWWWWWW");
     setList(newList);
   };
 
@@ -74,7 +71,6 @@ const HomePage = (props) => {
   if (Listpage && Listpage.length) {
     let check = Listpage.length % 10;
     let numLength = check !== 0 ? Listpage.length / 5 + 1 : Listpage.length / 5;
-    console.log(check, "nnnnnnnnnn");
     for (let number = 1; number <= numLength; number++) {
       items.push(
         <Pagination.Item
@@ -92,7 +88,7 @@ const HomePage = (props) => {
       <Pagination>{items}</Pagination>
     </div>
   );
-  console.log(list, "SSSSSSSSSSSSS");
+
   return (
     <>
       <div className="header">
@@ -121,7 +117,7 @@ const HomePage = (props) => {
       )}
       <Modal show={show} handleClose={handleClose} modaldata={modaldata} />
 
-      <div className="page_tab">{paginationBasic}</div>
+      {loader ? null : <div className="page_tab">{paginationBasic}</div>}
 
       <footer className="foot_parent">
         <p className="foot">"END OF USERS CATALOG"</p>
