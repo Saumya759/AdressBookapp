@@ -1,0 +1,32 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+}
+.load_page {
+  color: blue;
+  margin-top: 150px;
+  float: inline-start;
+  font-weight: bold;
+
+  
+}
+.foot {
+  font-style: bold;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.foot_parent {
+  position: relative;
+  min-height: 90vh;
+}
+.page_tab{
+  position: relative;
+  min-height: 90vh;
+  margin-left: 30%;
+  margin-top:20%
+
+}
